@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="imgs/favlogo.icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Courgette&family=Leckerli+One&family=Montserrat:wght@300;400;500;600;700;800;900&family=Parisienne&display=swap"
+        rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="./dist/output.css">
+
+    <title>Flower Shop</title>
+</head>
+
+<body>
+    <!-- /flower shop/*.html -->
+    <div id="root">
+        <div class="header sticky top-0 right-0 left-0 flex justify-around items-center">
+            <div class="logo m-3">
+                <a class="font-bold text-3xl" href="">flowery 🌷</a>
+            </div>
+            <nav class="navbar mt-3">
+                <a href="#home" class="tohome m-3 hover:text-red-500">Home</a>
+                <a class="m-2 hover:text-red-400" href="#pages">Offers</a>
+                <a class="m-2 hover:text-red-400" href="#shop">Shop</a>
+                <a class="m-2 hover:text-red-400" href="#portfolio">Portfolio</a>
+                <a class="m-2 hover:text-red-400" href="#news">News</a>
+                <a class="m-2 hover:text-red-400" href="#contact">contact</a>
+            </nav>
+            <div class="icons m-2">
+                <div @click="togglemenu" id="menu-btn" class="fas fa-bars"></div>
+                <a @click="tosearch" href="#search" id="search-btn" class="fas fa-search"></a>
+                <div @click="loginshow" id="login-btn" class="fas fa-user "></div>
+            </div>
+        </div>
+        <section id="home" class="home flex justify-start items-center">
+            <div class="home-text">
+                <h1 class="text-left text-6xl font-bold text-slate-800 mb-6 "> Feel the happines</h1>
+                <p class="mb-14  leading-8 text-gray-500 "> Make a bouquet and pick a gift with <br> your wishes.
+                    Deliver to any corner of city </p>
+                <a href=""
+                    class="btn text-sm font-medium uppercase rounded-3xl bg-red-500 hover:bg-slate-800 text-yellow-50 px-6 py-5">Pick
+                    a Bouquet</a>
+            </div>
+
+        </section>
+        <section class="banner" id="pages">
+            <div class="offers grid ">
+                <div class="offer1">
+                    <img src="imgs/sales/pexels-alena-koval-961402.jpg" alt="">
+                    <div class="text">
+
+                        <h3 class="font-bold text-3xl text-slate-800">-30% Offer</h3>
+                        <p class="font-bold text-2xl text-stone-300">Happy Flowers Day</p>
+                        <h4 class="text-red-600 font-bold text-xl">Only $12</h4>
+                    </div>
+                </div>
+                <div class="offer2">
+                    <img src="imgs/sales/pexels-photomix-company-96627.jpg" alt="">
+                    <div class="text">
+                        <p class="font-bold text-2xl text-stone-200">Happy Flowers Day</p>
+                        <h3 class="font-bold text-3xl text-slate-800">25% Offer</h3>
+
+
+                    </div>
+                </div>
+                <div class="offer3">
+                    <img src="imgs/sales/pexels-pixabay-414660.jpg" alt="">
+                    <div class="text">
+                        <h3 class="font-bold text-3xl text-slate-800">-40% Offer</h3>
+                        <p class="font-bold text-2xl text-stone-200">Happy Flowers Day</p>
+                        <h4 class="text-red-600 font-bold text-xl">Only $09</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="searchSec text-center my-15" id="search">
+            <input v-model="searching" type="text" placeholder="find what you want"
+                class="w-80 h-16 text-xl text-slate-600 rounded-3xl outline-none border-red-400 border-4">
+        </section>
+        <section class="shop" id="shop">
+            <div class="new-product center-text">
+                <h1 class=" dark:text-yellow-50 text-center text-4xl font-extrabold">New Arrivals items
+                </h1>
+            </div>
+            <div class="products-content grid">
+                <div class="product text-center relative cursor-pointer" v-for="(product,index) in filterProducts"
+                    :key="index">
+                    <div class="img-box">
+                        <img :src="product.image" alt="">
+                    </div>
+                    <h4 class=" text-sm mb-1 uppercase font-medium hover:text-red-600">
+                        {{product.name}}</h4>
+                    <h5 class=" font-semibold text-lg">${{product.price}}.00 </h5>
+                    <div class="top inline-flex items-center justify-center font-medium uppercase text-sm bg-red-600">
+                        <p>new</p>
+                    </div>
+                    <div class="btn ">
+                        <a class="absolute left- right-0 p-3" href="#">add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="banner-2">
+            <div class="offers grid ">
+                <div class="offer1">
+                    <img src="imgs/if need/pexels-sl-wong-1023953.jpg" alt="">
+                    <div class="text">
+                        <span class="block text-red-700 text-lg font-bold uppercase">Daisy</span>
+                        <p class="font-bold text-xl text-slate-800">Natural and Beautiful flower</p>
+                        <span class="block text-red-700 text-lg font-bold">from</span>
+                        <h4 class="text-slate-800 font-bold text-xl">Only $16.00</h4>
+                    </div>
+                </div>
+                <div class="offer2">
+                    <img src="imgs/if need/pexels-dids-1382902.jpg" alt="">
+                    <div class="text">
+                        <span class="block text-red-700 text-lg font-bold uppercase">Red rose</span>
+                        <p class="font-bold text-xl text-slate-800">Natural and Beautiful flower</p>
+                        <span class="block text-red-700 text-lg font-bold">from</span>
+                        <h4 class="text-slate-800 font-bold text-xl">Only $12.00</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="new-products" id="portfolio">
+            <div class="new-product center-text">
+                <h1 class="dark:text-yellow-50 text-center text-4xl font-extrabold">Top products
+                </h1>
+            </div>
+            <div class="products-content grid">
+                <div class="product text-center relative cursor-pointer" v-for="(product,index) in topproducts"
+                    :key="index">
+                    <div class="img-box">
+                        <img :src="product.image" alt="">
+                    </div>
+                    <h4 class="text-sm mb-1 uppercase font-medium ">{{product.name}}</h4>
+                    <h5 class="font-semibold text-lg">${{product.price}}.00 </h5>
+                    <div class="top inline-flex items-center justify-center font-medium uppercase text-sm bg-red-600">
+                        <p>hot</p>
+                    </div>
+                    <div class="btn ">
+                        <a class="absolute left- right-0 p-3" href="#">add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="blogs" id="news">
+            <div class="center-text news">
+                <h1 class=" dark:text-yellow-50 text-center text-4xl font-extrabold">Latest news
+                </h1>
+            </div>
+            <div class="blog-content grid justify-center items-center gap-10">
+                <div class="main-box">
+                    <div class="img-box">
+                        <img src="imgs/blogs/pexels-anton-mislawsky-226145.jpg" alt="">
+                    </div>
+                    <div class="box-text mt-10 flex items-center justify-between flex-wrap mb-4">
+                        <div class="inner-text">
+                            <p>Dec 02,2022</p>
+                        </div>
+                        <div class="inner-icon">
+                            <a class="" href=""><i class="fa-regular fa-comment"></i>20</a>
+                        </div>
+                    </div>
+                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                </div>
+                <div class="main-box">
+                    <div class="img-box">
+                        <img src="imgs/blogs/pexels-valeria-boltneva-1484657.jpg" alt="">
+                    </div>
+                    <div class="box-text mt-10 flex items-center justify-between flex-wrap mb-4 ">
+                        <div class="inner-text">
+                            <p>oct 09,2022</p>
+                        </div>
+                        <div class="inner-icon">
+                            <a class="" href=""><i class="fa-regular fa-comment"></i>30</a>
+                        </div>
+                    </div>
+                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                </div>
+                <div class="main-box">
+                    <div class="img-box">
+                        <img src="imgs/blogs/pexels-dimitri-kuliuk-1488310.jpg" alt="">
+                    </div>
+                    <div class="box-text mt-10 flex items-center justify-between flex-wrap mb-4">
+                        <div class="inner-text">
+                            <p>jan 10,2023</p>
+                        </div>
+                        <div class="inner-icon">
+                            <a class="" href=""><i class="fa-regular fa-comment"></i>40</a>
+                        </div>
+                    </div>
+                    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                </div>
+            </div>
+        </section>
+        <section class="contact grid justify-center mb-0" id="contact">
+            <div class="contact-box">
+                <h4 class="uppercase">My Account</h4>
+                <li><a href="#">My account</a></li>
+                <li><a href="#">Checkout</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Shopping cart</a></li>
+                <li><a href="#">Wish List</a></li>
+
+            </div>
+            <div class="contact-box">
+                <h4 class="uppercase">quick links</h4>
+                <li><a href="#">Store location</a></li>
+                <li><a href="#">Orders Tracking</a></li>
+                <li><a href="#">Size Quide</a></li>
+                <li><a href="#">My Account</a></li>
+                <li><a href="#">FAQs</a></li>
+
+            </div>
+            <div class="contact-box">
+                <h4 class="uppercase">quick links</h4>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#search">Search</a></li>
+                <li><a href="#portfolio">Porfolio</a></li>
+                <li><a href="#news">News</a></li>
+            </div>
+            <div class="contact-box">
+                <h4 class="font-bold text-xl">flowery 🌷</h4>
+                <h5 class="uppercase text-base font-semibold">Contact With US</h5>
+                <div class="social flex mt-7">
+                    <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </section>
+        <div class="scroll-top">
+            <a href="#home"><i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+        <div class="copright text-center ">
+            <p>copyright © 2023 , coded by haya</p>
+        </div>
+        <div class="toggle">
+            <button @click="darkmode" class=" mode"><span></span></button>
+        </div>
+        <!-- login s  -->
+        <div class="login-contaner">
+            <form action="">
+                <h3>login form</h3>
+                <input type="email" v-model="EmailInput" class="box email" placeholder="enter your email">
+                <span v-if="emailError" class="email-login-error">not valid email !</span>
+                <input type="password" class="box password" v-model="passwordinput" placeholder="enter password">
+                <span v-if="passwordError" class="password-login-error">password should be more than 8
+                    letters</span>
+                <div class="remember">
+                    <input v-model="ichecked" type="checkbox" id="remember-me" class="remember-me checkbox">
+                    <label for="remember-me">remember me</label>
+                </div>
+                <input @click="login" type="submit" class="btn login hover:bg-slate-300 bg-red-500"
+                    value="login"></input>
+                <button @click="tosignup" type="button"
+                    class="btn tosignup bg-slate-300 hover:bg-red-500">Signup</button>
+                <button @click="logout" type="button" class="btn logout">logout</button>
+            </form>
+        </div>
+        <div class="signin-contaner">
+            <form @submit="signup" action="">
+                <h3>signin form</h3>
+                <input type="text" v-model="username" class="box username" placeholder="enter your username">
+                <span class="username-error">cant be empty</span>
+                <input type="email" v-model="signupemail" class="box emailS" placeholder="enter your email">
+                <span class="email-error">not valid email !</span>
+                <input type="password" v-model="password" class="box passwordS" placeholder="enter password">
+                <span class="password-error">password should be more than 8 letters</span>
+                <input type="text" v-model="phonenumber" class="box phonenumber" placeholder="your phonenumber">
+                <span class="phone-error">cant be empty</span>
+                <input type="submit" class="btn signupt hover:bg-slate-300 bg-red-600 " value="signup"></input>
+                <button @click="signupForLogin" type="button"
+                    class="btn Sign-uplogin bg-slate-300 hover:bg-red-500">login</button>
+            </form>
+        </div>
+        <!-- login e-->
+
+    </div>
+    <script src="vuejs/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        var ve = new Vue({
+            el: '#root',
+            data: {
+                flowers: [],
+                hover: false,
+                searching: "",
+                searchVal: false,
+                show: false,
+                ichecked: false,
+                EmailInput: "",
+                passwordinput: "",
+                username: "",
+                signupemail: "",
+                password: "",
+                phonenumber: "",
+                userid: "",
+                userdata: [],
+                emailError: false,
+                passwordError: false,
+
+
+
+                // topproducts:[],
+
+            },
+            computed: {
+                filterProducts() {
+                    return this.flowers.filter((product) => {
+                        return product.name.match(this.searching)
+                    });
+                },
+                topproducts() {
+                    return this.flowers.filter((x, i) => i < 4);
+                }
+            },
+            methods: {
+                async getFlowers() {
+                    await fetch("./ProductsData.json").then((res) => {
+                        return res.json();
+                    }).then((data) => {
+                        this.flowers = (data.products);
+                    })
+                    console.log(this.flowers);
+                },
+                tosearch(e) {
+                    e.preventDefault();
+                    this.searchVal = !this.searchVal;
+                    let element = document.querySelector(".searchSec");
+                    let x = element.offsetLeft;
+                    let y = element.offsetTop - 100;
+                    window.scrollTo(x, y);
+
+                    //window.scrollTop = document.querySelector("#search").offsetTop;
+                },
+                togglemenu() {
+                    document.querySelector(".navbar").classList.toggle("active");
+                    window.onscroll = function () {
+                        document.querySelector(".navbar").classList.remove("active");
+                    };
+                    document.onkeydown = function (e) {
+                        e = e || window.event;
+                        if (e.keyCode == 27) {
+                            document.querySelector(".navbar").classList.remove("active");
+                        }
+                    };
+                },
+                loginshow() {
+                    document.querySelector(".login-contaner").classList.toggle("active");
+                    let rememberuser = localStorage.getItem('remembered-user');
+                    if (rememberuser) {
+                        let emailval = JSON.parse(rememberuser).myemail;
+                        this.EmailInput = emailval;
+                        this.passwordinput = JSON.parse(rememberuser).password;
+                    }
+                },
+                logout(e) {
+                    localStorage.removeItem("remembered-user");
+                    this.EmailInput = "";
+                    this.passwordinput = "";
+                },
+                signupForLogin(e) {
+                    e.preventDefault();
+                    document.querySelector(".login-contaner").classList.toggle("active");
+                    document.querySelector(".signin-contaner").classList.remove("active");
+                }, tosignup() {
+                    document.querySelector(".login-contaner").classList.remove("active");
+                    document.querySelector(".signin-contaner").classList.add("active");
+                },
+                checked() {
+                    // this.ichecked = !this.ichecked;
+                    if (this.ichecked == true) {
+                        console.log('checked');
+                        localStorage.setItem('remembered-user', JSON.stringify({ val: "theremembered", myemail: this.EmailInput, password: this.passwordinput }));
+                    }
+                },
+                signup(e) {
+                    e.preventDefault();
+                    //this.$el.querySelector(parameter)
+                    let re = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+                    let emailInput = this.signupemail;
+                    let v1, v2, v3, v4 = false;
+                    if (re.test(emailInput)) {
+
+                        v1 = true;
+                        if (document.querySelector(".email-error").classList.contains("active")) {
+                            document.querySelector(".email-error").classList.remove("active");
+                        }
+                    }
+                    else {
+                        document.querySelector(".email-error").classList.add("active");
+                    }
+                    if (this.password.length > 8) {
+                        console.log("valid password");
+                        v2 = true;
+                        if (document.querySelector(".password-error").classList.contains("active")) {
+                            document.querySelector(".password-error").classList.remove("active");
+                        }
+                    }
+                    else {
+                        document.querySelector(".password-error").classList.add("active");
+                    }
+                    if (this.username != "") {
+                        console.log("valid username");
+                        v3 = true;
+                        if (document.querySelector(".username-error").classList.contains("active")) {
+                            document.querySelector(".username-error").classList.remove("active");
+                        }
+                    }
+                    else {
+                        document.querySelector(".username-error").classList.toggle("active");
+                    }
+                    if (this.phonenumber != "") {
+                        console.log("valid phonenum");
+                        v4 = true;
+                        if (document.querySelector(".phone-error").classList.contains("active")) {
+                            document.querySelector(".phone-error").classList.remove("active");
+                        }
+                    }
+                    else {
+                        document.querySelector(".phone-error").classList.toggle("active");
+                    }
+                    if (v1 == true && v2 == true && v3 == true && v4 == true) {
+                        console.log("valid signup");
+                        let userinfo = localStorage.getItem("user-info");
+                        if (userinfo) {
+                            localStorage.removeItem("user-info");
+                        }
+                        console.log("new user added successfully");
+                        localStorage.setItem('user-info', JSON.stringify({
+                            name: this.username,
+                            email: this.signupemail,
+                            password: this.password,
+                            phoneNum: this.phonenumber
+                        }));
+                        this.username = "";
+                        this.password = "";
+                        this.signupemail = "";
+                        this.phonenumber = "";
+                        document.querySelector(".signin-contaner").classList.remove('active');
+                        document.querySelector(".login-contaner").classList.add('active');
+
+                    }
+                    else {
+                        console.log("signup not valid");
+                    }
+                },
+                login(e) {
+                    e.preventDefault();
+                    let re = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+                    let v1, v2 = false;
+                    if (re.test(this.EmailInput)) {
+
+                        v1 = true;
+                        if (this.emailError === true) {
+                            this.emailError = false;
+                        }
+                    }
+                    else {
+                        this.emailError = true;
+                    }
+                    if (this.passwordinput.length > 8) {
+                        console.log("valid password");
+                        v2 = true;
+                        if (this.passwordError === true) {
+                            this.passwordError = false;
+                        }
+                    }
+                    else {
+                        this.passwordError = true;
+                    }
+                    if (v1 && v2) {
+                        let saveduser = localStorage.getItem('user-info');
+                        if (saveduser) {
+                            let email1 = JSON.parse(saveduser).email;
+                            let password1 = JSON.parse(saveduser).password;
+                            if (this.EmailInput === email1 && this.passwordinput === password1) {
+                                if (this.ichecked == true) {
+                                    console.log('checked');
+                                    localStorage.setItem('remembered-user', JSON.stringify({ val: "theremembered", myemail: this.EmailInput, password: this.passwordinput }));
+                                }
+                                else {
+                                    localStorage.removeItem('remembered-user');
+                                }
+                                document.querySelector(".login-contaner").classList.remove("active");
+
+                            }
+                        }
+                    }
+                },
+                darkmode() {
+                    let maincolor = "rgb(30 41 59)";
+                    let colorbg = "hsl(210, 40%, 98%)";
+                    document.querySelector(".toggle button").classList.toggle("pressed");
+                    document.querySelector("body").classList.toggle("dark");
+                    document.querySelectorAll(".center-text h1").forEach(e => {
+                        e.classList.toggle("dark")
+                    });
+                    document.querySelectorAll(".product h4").forEach(e => {
+                        e.classList.toggle("dark")
+                    });
+                    document.querySelectorAll(".product h5").forEach(e => {
+                        e.classList.toggle("dark")
+                    });
+                    document.querySelectorAll(".blog-content .main-box div p").forEach(e => {
+                        e.classList.toggle("dark");
+                    });
+                    document.querySelectorAll(".blog-content .main-box div a").forEach(e => {
+                        e.classList.toggle("dark");
+                    });
+                    document.querySelectorAll(".blog-content .main-box div a i").forEach(e => {
+                        e.classList.toggle("dark");
+                    });
+                    document.querySelectorAll(".blog-content .main-box h3").forEach(e => {
+                        e.classList.toggle("dark");
+                    });
+                }
+
+            },
+            created() {
+
+            },
+            mounted() {
+                this.getFlowers();
+                window.onscroll = function () {
+                    if (this.scrollY >= 1000) {
+                        document.querySelector(".scroll-top").classList.add("show");
+                    } else {
+                        document.querySelector(".scroll-top").classList.remove("show");
+                    }
+                };
+                let Homelanding = document.querySelector(".home");
+                let imgs_arr = ["pexels-pixabay-158756.jpg", "pexels-jess-bailey-designs-1172849.jpg", "pexels-dids-1382902.jpg"];
+                setInterval(() => {
+                    let randomnum = Math.floor(Math.random() * imgs_arr.length);
+                    //change backg img url
+                    Homelanding.style.backgroundImage = 'url("imgs/' + imgs_arr[randomnum] + '")';
+                }, 4000);
+                console.log(Object.values(this.userdata));
+
+            }
+
+        })
+    </script>
+</body>
+
+</html>
