@@ -44,7 +44,7 @@
                 <h1 class="text-left text-6xl font-bold text-slate-800 mb-6 "> Feel the happines</h1>
                 <p class="mb-14  leading-8 text-gray-500 "> Make a bouquet and pick a gift with <br> your wishes.
                     Deliver to any corner of city </p>
-                <a href=""
+                <a @click.prevent href=""
                     class="btn text-sm font-medium uppercase rounded-3xl bg-red-500 hover:bg-slate-800 text-yellow-50 px-6 py-5">Pick
                     a Bouquet</a>
             </div>
@@ -82,7 +82,7 @@
         </section>
         <section class="searchSec text-center my-15" id="search">
             <input v-model="searching" type="text" placeholder="find what you want"
-                class="w-80 h-16 text-xl text-slate-600 rounded-3xl outline-none border-red-400 border-4">
+                class="p-3 w-80 h-16 text-xl text-slate-600 rounded-3xl outline-none border-red-400 border-4">
         </section>
         <section class="shop" id="shop">
             <div class="new-product center-text">
@@ -90,19 +90,23 @@
                 </h1>
             </div>
             <div class="products-content grid">
+                <!-- change product shape put the text inside div and work on it -->
                 <div class="product text-center relative cursor-pointer" v-for="(product,index) in filterProducts"
                     :key="index">
                     <div class="img-box">
                         <img :src="product.image" alt="">
                     </div>
-                    <h4 class=" text-sm mb-1 uppercase font-medium hover:text-red-600">
-                        {{product.name}}</h4>
-                    <h5 class=" font-semibold text-lg">${{product.price}}.00 </h5>
-                    <div class="top inline-flex items-center justify-center font-medium uppercase text-sm bg-red-600">
-                        <p>new</p>
-                    </div>
-                    <div class="btn ">
-                        <a class="absolute left- right-0 p-3" href="#">add to cart</a>
+                    <div class="text">
+                        <h4 class=" text-sm mb-1 uppercase font-medium hover:text-red-600">
+                            {{product.name}}</h4>
+                        <h5 class=" font-semibold text-lg">${{product.price}}.00 </h5>
+                        <div
+                            class="top inline-flex items-center justify-center font-medium uppercase text-sm bg-red-600">
+                            <p>new</p>
+                        </div>
+                        <div class="btn ">
+                            <a class="absolute left- right-0 p-3" @click.prevent="addedToCart" href="#">add to cart</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -112,19 +116,19 @@
                 <div class="offer1">
                     <img src="imgs/if need/pexels-sl-wong-1023953.jpg" alt="">
                     <div class="text">
-                        <span class="block text-red-700 text-lg font-bold uppercase">Daisy</span>
-                        <p class="font-bold text-xl text-slate-800">Natural and Beautiful flower</p>
-                        <span class="block text-red-700 text-lg font-bold">from</span>
-                        <h4 class="text-slate-800 font-bold text-xl">Only $16.00</h4>
+                        <span class="block text-red-700 text-xl font-bold uppercase">Daisy</span>
+                        <p class="font-bold text-2xl text-slate-800">Natural and Beautiful flower</p>
+                        <span class="block text-red-700 text-xl font-bold">from</span>
+                        <h4 class="text-slate-800 font-bold text-2xl">Only $16.00</h4>
                     </div>
                 </div>
                 <div class="offer2">
                     <img src="imgs/if need/pexels-dids-1382902.jpg" alt="">
                     <div class="text">
-                        <span class="block text-red-700 text-lg font-bold uppercase">Red rose</span>
-                        <p class="font-bold text-xl text-slate-800">Natural and Beautiful flower</p>
-                        <span class="block text-red-700 text-lg font-bold">from</span>
-                        <h4 class="text-slate-800 font-bold text-xl">Only $12.00</h4>
+                        <span class="block text-red-700 text-xl font-bold uppercase">Red rose</span>
+                        <p class="font-bold text-2xl text-slate-800">Natural and Beautiful flower</p>
+                        <span class="block text-red-700 text-xl font-bold">from</span>
+                        <h4 class="text-slate-800 font-bold text-2xl">Only $12.00</h4>
                     </div>
                 </div>
             </div>
@@ -140,13 +144,13 @@
                     <div class="img-box">
                         <img :src="product.image" alt="">
                     </div>
-                    <h4 class="text-sm mb-1 uppercase font-medium ">{{product.name}}</h4>
+                    <h4 class="text-base mb-1 uppercase font-medium ">{{product.name}}</h4>
                     <h5 class="font-semibold text-lg">${{product.price}}.00 </h5>
                     <div class="top inline-flex items-center justify-center font-medium uppercase text-sm bg-red-600">
                         <p>hot</p>
                     </div>
                     <div class="btn ">
-                        <a class="absolute left- right-0 p-3" href="#">add to cart</a>
+                        <a class="absolute left- right-0 p-3" @click.prevent="addedToCart" href="#">add to cart</a>
                     </div>
                 </div>
             </div>
@@ -159,21 +163,21 @@
             <div class="blog-content grid justify-center items-center gap-10">
                 <div class="main-box">
                     <div class="img-box">
-                        <img src="imgs/blogs/pexels-anton-mislawsky-226145.jpg" alt="">
+                        <img src="imgs/blogs/pexels-anton-mislawsky-226145.webp" alt="">
                     </div>
                     <div class="box-text mt-10 flex items-center justify-between flex-wrap mb-4">
                         <div class="inner-text">
                             <p>Dec 02,2022</p>
                         </div>
                         <div class="inner-icon">
-                            <a class="" href=""><i class="fa-regular fa-comment"></i>20</a>
+                            <a @click.prevent href=""><i class="fa-regular fa-comment"></i>20</a>
                         </div>
                     </div>
                     <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
                 </div>
                 <div class="main-box">
                     <div class="img-box">
-                        <img src="imgs/blogs/pexels-valeria-boltneva-1484657.jpg" alt="">
+                        <img src="imgs/blogs/pexels-valeria-boltneva-1484657.webp" alt="">
                     </div>
                     <div class="box-text mt-10 flex items-center justify-between flex-wrap mb-4 ">
                         <div class="inner-text">
@@ -187,7 +191,7 @@
                 </div>
                 <div class="main-box">
                     <div class="img-box">
-                        <img src="imgs/blogs/pexels-dimitri-kuliuk-1488310.jpg" alt="">
+                        <img src="imgs/blogs/pexels-dimitri-kuliuk-1488310.webp" alt="">
                     </div>
                     <div class="box-text mt-10 flex items-center justify-between flex-wrap mb-4">
                         <div class="inner-text">
@@ -204,20 +208,20 @@
         <section class="contact grid justify-center mb-0" id="contact">
             <div class="contact-box">
                 <h4 class="uppercase">My Account</h4>
-                <li><a href="#">My account</a></li>
-                <li><a href="#">Checkout</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Shopping cart</a></li>
-                <li><a href="#">Wish List</a></li>
+                <li><a @click.prevent href="#">My account</a></li>
+                <li><a @click.prevent href="#">Checkout</a></li>
+                <li><a @click.prevent href="#">Contact Us</a></li>
+                <li><a @click.prevent href="#">Shopping cart</a></li>
+                <li><a @click.prevent href="#">Wish List</a></li>
 
             </div>
             <div class="contact-box">
                 <h4 class="uppercase">quick links</h4>
-                <li><a href="#">Store location</a></li>
-                <li><a href="#">Orders Tracking</a></li>
-                <li><a href="#">Size Quide</a></li>
-                <li><a href="#">My Account</a></li>
-                <li><a href="#">FAQs</a></li>
+                <li><a @click.prevent href="#">Store location</a></li>
+                <li><a @click.prevent href="#">Orders Tracking</a></li>
+                <li><a @click.prevent href="#">Size Quide</a></li>
+                <li><a @click.prevent href="#">My Account</a></li>
+                <li><a @click.prevent href="#">FAQs</a></li>
 
             </div>
             <div class="contact-box">
@@ -231,9 +235,9 @@
                 <h4 class="font-bold text-xl">flowery 🌷</h4>
                 <h5 class="uppercase text-base font-semibold">Contact With US</h5>
                 <div class="social flex mt-7">
-                    <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a @click.prevent href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                    <a @click.prevent href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a @click.prevent href="#"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
         </section>
@@ -243,13 +247,10 @@
         <div class="copright text-center ">
             <p>copyright © 2023 , coded by haya</p>
         </div>
-        <div class="toggle">
-            <button @click="darkmode" class=" mode"><span></span></button>
-        </div>
         <!-- login s  -->
-        <div class="login-contaner">
+        <div class="login-contaner flex items-center">
             <form action="">
-                <h3>login form</h3>
+                <h3 class="font-bold">login form</h3>
                 <input type="email" v-model="EmailInput" class="box email" placeholder="enter your email">
                 <span v-if="emailError" class="email-login-error">not valid email !</span>
                 <input type="password" class="box password" v-model="passwordinput" placeholder="enter password">
@@ -259,16 +260,16 @@
                     <input v-model="ichecked" type="checkbox" id="remember-me" class="remember-me checkbox">
                     <label for="remember-me">remember me</label>
                 </div>
-                <input @click="login" type="submit" class="btn login hover:bg-slate-300 bg-red-500"
-                    value="login"></input>
+                <input @click="login" type="submit" class="btn login hover:bg-slate-300 bg-slate-800 font-bold"
+                    value="Login"></input>
                 <button @click="tosignup" type="button"
-                    class="btn tosignup bg-slate-300 hover:bg-red-500">Signup</button>
-                <button @click="logout" type="button" class="btn logout">logout</button>
+                    class="btn tosignup bg-slate-300 hover:bg-red-500 font-bold">Signup</button>
+                <button @click="logout" type="button" class="btn logout font-bold">Logout</button>
             </form>
         </div>
         <div class="signin-contaner">
             <form @submit="signup" action="">
-                <h3>signin form</h3>
+                <h3 class="font-bold">signin form</h3>
                 <input type="text" v-model="username" class="box username" placeholder="enter your username">
                 <span class="username-error">cant be empty</span>
                 <input type="email" v-model="signupemail" class="box emailS" placeholder="enter your email">
@@ -277,12 +278,29 @@
                 <span class="password-error">password should be more than 8 letters</span>
                 <input type="text" v-model="phonenumber" class="box phonenumber" placeholder="your phonenumber">
                 <span class="phone-error">cant be empty</span>
-                <input type="submit" class="btn signupt hover:bg-slate-300 bg-red-600 " value="signup"></input>
+                <input type="submit" class="btn signupt hover:bg-slate-300 bg-slate-800 font-bold"
+                    value="Signup"></input>
                 <button @click="signupForLogin" type="button"
-                    class="btn Sign-uplogin bg-slate-300 hover:bg-red-500">login</button>
+                    class="btn Sign-uplogin bg-slate-300 hover:bg-red-500 font-bold">Login</button>
             </form>
         </div>
         <!-- login e-->
+        <div class="sucess text-yellow-50 bg-slate-800 rounded-lg p-2 m-3 text-center">
+            <p>ADDED TO CART</p>
+        </div>
+        <div class="setting-box">
+            <div class="toggle_settings">
+                <i class="fa-solid fa-gear" @click="toggleSettings"></i>
+            </div>
+            <div class="settings_container">
+                <div class="option_box">
+                    <h4>Dark Mode</h4>
+                    <div class="toggle">
+                        <button @click="darkmode" class=" mode"><span></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
     <script src="vuejs/vue.js"></script>
@@ -308,15 +326,11 @@
                 emailError: false,
                 passwordError: false,
 
-
-
-                // topproducts:[],
-
             },
             computed: {
                 filterProducts() {
                     return this.flowers.filter((product) => {
-                        return product.name.match(this.searching)
+                        return product.name.match(this.searching.toLowerCase())
                     });
                 },
                 topproducts() {
@@ -334,6 +348,8 @@
                 },
                 tosearch(e) {
                     e.preventDefault();
+                    document.querySelector(".login-contaner").classList.remove("active");
+                    document.querySelector(".signin-contaner").classList.remove("active");
                     this.searchVal = !this.searchVal;
                     let element = document.querySelector(".searchSec");
                     let x = element.offsetLeft;
@@ -341,6 +357,13 @@
                     window.scrollTo(x, y);
 
                     //window.scrollTop = document.querySelector("#search").offsetTop;
+                },
+                addedToCart() {
+                    document.querySelector(".sucess").classList.add("open");
+                    setTimeout(() => {
+                        document.querySelector(".sucess").classList.remove("open");
+                    }, 2000);
+
                 },
                 togglemenu() {
                     document.querySelector(".navbar").classList.toggle("active");
@@ -353,6 +376,11 @@
                             document.querySelector(".navbar").classList.remove("active");
                         }
                     };
+                    //close login or signup form when choose one from nav
+                    document.querySelectorAll(".navbar a").forEach((e) => e.addEventListener("click", () => {
+                        document.querySelector(".login-contaner").classList.remove("active");
+                        document.querySelector(".signin-contaner").classList.remove("active");
+                    }));
                 },
                 loginshow() {
                     document.querySelector(".login-contaner").classList.toggle("active");
@@ -497,18 +525,18 @@
                         }
                     }
                 },
+                toggleSettings(e) {
+                    //to make icon rotation it self
+                    e.target.classList.toggle("fa-spin");
+                    //to open the settings add open class move left
+                    document.querySelector(".setting-box").classList.toggle("open");
+                },
                 darkmode() {
                     let maincolor = "rgb(30 41 59)";
                     let colorbg = "hsl(210, 40%, 98%)";
                     document.querySelector(".toggle button").classList.toggle("pressed");
                     document.querySelector("body").classList.toggle("dark");
                     document.querySelectorAll(".center-text h1").forEach(e => {
-                        e.classList.toggle("dark")
-                    });
-                    document.querySelectorAll(".product h4").forEach(e => {
-                        e.classList.toggle("dark")
-                    });
-                    document.querySelectorAll(".product h5").forEach(e => {
                         e.classList.toggle("dark")
                     });
                     document.querySelectorAll(".blog-content .main-box div p").forEach(e => {
@@ -527,9 +555,6 @@
 
             },
             created() {
-
-            },
-            mounted() {
                 this.getFlowers();
                 window.onscroll = function () {
                     if (this.scrollY >= 1000) {
@@ -538,6 +563,9 @@
                         document.querySelector(".scroll-top").classList.remove("show");
                     }
                 };
+
+            },
+            mounted() {
                 let Homelanding = document.querySelector(".home");
                 let imgs_arr = ["pexels-pixabay-158756.jpg", "pexels-jess-bailey-designs-1172849.jpg", "pexels-dids-1382902.jpg"];
                 setInterval(() => {
@@ -545,7 +573,7 @@
                     //change backg img url
                     Homelanding.style.backgroundImage = 'url("imgs/' + imgs_arr[randomnum] + '")';
                 }, 4000);
-                console.log(Object.values(this.userdata));
+                // console.log(Object.values(this.userdata));
 
             }
 

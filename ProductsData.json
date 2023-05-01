@@ -4,55 +4,55 @@
             "id": 1,
             "name": "red rose flower",
             "price": 18,
-            "image": "./imgs/red-rose1.jpg"
+            "image": "./imgs/red-rose1.webp"
         },
         {
             "id": 2,
             "name": "red rose flower",
             "price": 18,
-            "image": "./imgs/red-rose2.jpg"
+            "image": "./imgs/red-rose2.webp"
         },
         {
             "id": 3,
             "name": "white daisy flower",
             "price": 16,
-            "image": "./imgs/daisy-flower1.jpg"
+            "image": "./imgs/daisy-flower1.webp"
         },
         {
             "id": 4,
             "name": "yellow sun flower",
             "price": 19,
-            "image": "./imgs/sun-flower1.jpg"
+            "image": "./imgs/sun-flower1.webp"
         },
         {
             "id": 5,
             "name": "white camilia flower",
             "price": 20,
-            "image": "./imgs/white-rose1.jpg"
+            "image": "./imgs/white-rose1.webp"
         },
         {
             "id": 6,
             "name": "white rose flower",
             "price": 15,
-            "image": "./imgs/white-rose2.jpg"
+            "image": "./imgs/white-rose2.webp"
         },
         {
             "id": 7,
             "name": "pink orkid flower",
             "price": 14,
-            "image": "./imgs/pink-rose1.jpg"
+            "image": "./imgs/pink-rose1.webp"
         },
         {
             "id": 8,
             "name": "pink rose flower",
             "price": 15,
-            "image": "./imgs/pink-rose2.jpg"
+            "image": "./imgs/pink-rose2.webp"
         },
         {
             "id": 9,
             "name": "pink rose flower",
             "price": 15,
-            "image": "./imgs/pink-rose3.jpg"
+            "image": "./imgs/pink-rose3.webp"
         }
     ]
 }
